@@ -6,3 +6,7 @@ Competitive Programming Code
 - Final check if memoised before trying
 - Remember to & any arguments for memory especially for recursive.
 - Check need for longs
+- GDB:
+``` bt (backtrace call stack)
+    p [varname] (variable)
+```
