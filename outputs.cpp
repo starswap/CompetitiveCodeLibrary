@@ -33,3 +33,13 @@ ostream& operator << (ostream& o, bool b) {
     o << "false";
   return o;
 }
+
+template <typename T>
+ostream& operator << (ostream& o, multiset<T> v) {
+   o << "{";
+   for (auto it = v.begin();it != v.end();it++) {
+     o << *it << ",";
+  }
+  o << "}";
+  return o;
+}
