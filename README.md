@@ -10,5 +10,6 @@ Competitive Programming Code
 ``` 
     bt (backtrace call stack)
     p [varname] (variable)
+    run < [filename]
 ```
 - May be able to use deque instead of bst if only want max min and vals come in right order
