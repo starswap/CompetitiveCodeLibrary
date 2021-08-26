@@ -13,3 +13,7 @@ Competitive Programming Code
     run < [filename]
 ```
 - May be able to use deque instead of bst if only want max min and vals come in right order
+- Input/output:
+    - Use '\n' not endl;
+    - ios_base::sync_with_stdio(false);
+    - cin.tie(NULL); at the beginning
