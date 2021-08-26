@@ -22,3 +22,31 @@ int MCBM(vector<vector<int>> AL,int Vtot,int VLeft) {
 
   return totalMatches;
 }
+
+
+
+
+//String mode:
+
+int augPath(unordered_map<string,vector<string>> &AL,unordered_set<string> &visited,unordered_map<string,string> &matches, string L) {
+  if (visited.count(L) == 1) return 0;
+  visited.insert(L);
+  for (auto R : AL[L]) {
+    if (matches.count(R) == 0 || augPath(AL,visited,matches,matches[R])) {
+      matches[R] = L;
+      return 1;
+    }
+  }
+  return 0;
+}
+
+int MCBM(unordered_map<string,vector<string>> &AL,vector<string> leftSet) {
+  unordered_map<string,string> matches;
+  unordered_set<string> visited;
+  int totalMatches = 0;
+  for (auto L : leftSet) {
+    totalMatches += augPath(AL,visited,matches,L);
+    visited.clear();
+  }
+  return totalMatches;
+} 
