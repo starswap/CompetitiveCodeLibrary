@@ -14,6 +14,6 @@ Competitive Programming Code
 ```
 - May be able to use deque instead of bst if only want max min and vals come in right order
 - Input/output:
-    - Use '\n' not endl;
-    - ios_base::sync_with_stdio(false);
-    - cin.tie(NULL); at the beginning
+    - Use '\n' not endl to prevent buffering
+    - ios_base::sync_with_stdio(false); - can't then mix C and C++ input/output
+    - cin.tie(NULL); at the beginning - Prevents the "flushing of cout before cin accepts new input" (may not want this for interactive problems) 
