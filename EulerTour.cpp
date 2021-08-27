@@ -32,3 +32,22 @@ bool eulerCheck(vector<vector<int>> &AL) {
   }
   return true;
 }
+
+
+//Should work for directed graph - not fully tested
+vector<int> findEulerianTour(vector<vector<int>> &AL,int start) {
+  vector<int> stack,result,amountOfUsedConns(AL.size(),0);
+  stack.push_back(start);
+  while (!stack.empty()){
+    int top = stack.back();
+    if (amountOfUsedConns[top] == AL[top].size()) {
+      stack.pop_back();
+      result.push_back(top);
+    } else {
+      stack.push_back(AL[top][amountOfUsedConns[top]]); //remember indexing
+      ++amountOfUsedConns[top];
+    }
+  }
+  //may need to reverse;
+  return result;
+}
