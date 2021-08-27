@@ -21,11 +21,11 @@ Competitive Programming Code
 
 Watch out for nearest minute - make sure that if it is 59.8 you do 1:00 not 0:00
 ```C++
-int mins = round(dist * 60); //minutes
-int hours = floor(dist/60);
+int mins = round(unroundedHours * 60); //minutes
+int hours = floor(mins/60);
 mins = (mins - hours*60);
 cout << hours << ":";
 if (mins < 10) 
   cout << "0";
-cout << mins;
+cout << mins << "\n";
 ```
