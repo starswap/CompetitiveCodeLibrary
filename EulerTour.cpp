@@ -64,7 +64,6 @@ vector<int> findEulerianTour(vector<vector<int>> &AL,int start) {
 
     //In case we previously used the next edge in the reverse direction
     while (amountOfUsedConns[top] < AL[top].size() && usedEdges.count(pair<int,int>(AL[top][amountOfUsedConns[top]],top)) > 0) {
-     // cout << AL[top][amountOfUsedConns[top]] << '\n';
       usedEdges.erase(usedEdges.find(pair<int,int>(AL[top][amountOfUsedConns[top]],top))); //we've seen the back-edge.  
       amountOfUsedConns[top]++;
     }
