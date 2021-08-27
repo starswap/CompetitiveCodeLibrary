@@ -51,3 +51,36 @@ vector<int> findEulerianTour(vector<vector<int>> &AL,int start) {
   //may need to reverse;
   return result;
 }
+
+
+//For undirected, may be TLE depending on judge - not optimised
+//Normal algorithm is O(E) but this one is probably O(2*E*logE something like that)
+vector<int> findEulerianTour(vector<vector<int>> &AL,int start) {
+  vector<int> stack,result,amountOfUsedConns(AL.size(),0);
+  stack.push_back(start);
+  multiset<pair<int,int>> usedEdges;
+  while (!stack.empty()){
+    int top = *stack.rbegin();
+
+    //In case we previously used the next edge in the reverse direction
+    while (amountOfUsedConns[top] < AL[top].size() && usedEdges.count(pair<int,int>(AL[top][amountOfUsedConns[top]],top)) > 0) {
+     // cout << AL[top][amountOfUsedConns[top]] << '\n';
+      usedEdges.erase(usedEdges.find(pair<int,int>(AL[top][amountOfUsedConns[top]],top))); //we've seen the back-edge.  
+      amountOfUsedConns[top]++;
+    }
+
+    if (amountOfUsedConns[top] >= AL[top].size()) {
+      stack.pop_back();
+      result.push_back(top);
+    } else {
+      stack.push_back(AL[top][amountOfUsedConns[top]]); //remember indexing
+      if (top != AL[top][amountOfUsedConns[top]])
+        usedEdges.insert(pair<int,int>(top,AL[top][amountOfUsedConns[top]]));
+      else
+        ++amountOfUsedConns[top]; //will be there twice so need to double up - self loop
+      ++amountOfUsedConns[top];
+    }
+  }
+  //may need to reverse;
+  return result;
+}
