@@ -12,7 +12,7 @@ int main() {
     
     //get end of line
     getline(cin,line);
-    for (getline(cin,line);line != "";getline(cin,line)) {
+    for (getline(cin,line);line != "" && !cin.eof();getline(cin,line)) {
       //e.g. - anything coming on every line
       int x1,y1,x2,y2;
       sscanf(line.c_str(),"%d %d %d %d",&x1,&y1,&x2,&y2);
