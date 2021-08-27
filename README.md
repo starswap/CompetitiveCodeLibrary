@@ -17,3 +17,6 @@ Competitive Programming Code
     - Use '\n' not endl to prevent buffering
     - ios_base::sync_with_stdio(false); - can't then mix C and C++ input/output
     - cin.tie(NULL); at the beginning - Prevents the "flushing of cout before cin accepts new input" (may not want this for interactive problems) 
+
+
+Watch out for nearest minute - make sure that if it is 59.8 you do 1:00 not 0:00
