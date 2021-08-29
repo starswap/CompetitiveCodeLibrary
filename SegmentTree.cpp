@@ -6,7 +6,7 @@ class SegmentTree {
     inline int parent(int a) {return a>>1;}
     inline int lChild(int a) {return a<<1;}
     inline int rChild(int a) {return (a<<1) + 1;}
-    inline int compare(int a,int b) {return min(a,b);} //CHANGE THIS TO GO FROM RMQ TO RMQ TO RSQ
+    inline int compare(int a,int b) {return min(a,b);} //CHANGE THIS TO GO FROM RMQ TO RMQ TO RSQ (RSQ does require a bit more work)
 
     void build(vector<int> &A,int L,int R,int p) {
       if (L==R) {st[p] = A[L];}
@@ -32,7 +32,6 @@ class SegmentTree {
 
     void rangeUpdate(int i,int j,int L, int R, int val,int p) {
         propagateLazy(L,R,p);
-        //MAY NEED TO DO SOMETHING IF i > j; i..e return.
         if (L >= i && R <= j) { //we are within the required range
           st[p] = val;
           lazy[p] = true; //may need to popagate lazy flags again here.
