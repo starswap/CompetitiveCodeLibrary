@@ -29,7 +29,7 @@ int main() {
       cout << "\n";
     }
   }
-  
+}  
   
 //function call style input with variable number of arguments
 vector<int> args;
@@ -50,3 +50,19 @@ for (int q=0;q<Q;q++) {
       printf("%d\n",DOSOMETHINGTOOUTPUT(args[0],args[1])); //e.g.
     }
 }
+
+
+//Read all numbers on a line.
+string rest;
+getline(cin,rest);
+istringstream iss(rest);
+int T;
+while (iss >> T) {
+  AL[S-1].push_back(T-1);
+  AL[T-1].push_back(S-1);
+}
+cin >> S;
+  
+  
+  
+  
