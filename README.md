@@ -1,6 +1,8 @@
 # CompetitiveProgrammingCodeLibrary
 Competitive Programming Code
 
+ 
+My own implementations of algorithms from CP4 -> cpbook.net and some other things.
 
 Notes:
 
