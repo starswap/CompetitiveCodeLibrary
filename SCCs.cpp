@@ -9,16 +9,6 @@ void dfs(vector<vector<int>>&AL,int u) {
   postOrder.push_back(u);
 }
 
-template <typename T>
-ostream& operator << (ostream& o, vector<T> v) {
-  o << "[";
-  for (auto a : v) {
-    o << a << ",";
-  }
-  o << "]";
-  return o;
-}
-
 int Kosaraju(vector<vector<int>>&AL,vector<vector<int>> &AL_T) {
   int n = AL.size();
   visited.assign(n,false);
