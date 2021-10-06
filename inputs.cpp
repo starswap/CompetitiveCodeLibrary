@@ -63,6 +63,19 @@ while (iss >> T) {
 }
 cin >> S;
   
-  
+
+//Read list of ints
+int a;
+char c; //Used to sweep up unwanted chars like brackets and commas
+cin >> c; //pull in [
+for (int i=0;i<size;i++) {
+  cin >> a; //get ith integer
+  if (i < size-1) //sweep up comma (not last bracket)
+    cin >> c;
+  DOSOMETHING(a); 
+}
+cin >> c; //get last ] - make sure both [] codes are outside loop to correctly deal with empty list
+
+
   
   
