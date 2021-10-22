@@ -33,3 +33,8 @@ if (mins < 10)
   cout << "0";
 cout << mins << "\n";
 ```
+
+Clear a c style array
+```c
+  memset(members, 0, sizeof members);
+```
