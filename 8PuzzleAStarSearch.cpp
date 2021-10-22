@@ -12,7 +12,7 @@
 //Can use the dr dc arrays techinque for less code
 //Add two to lim not 1 per time?
 //**Get the right heuristic
-//Can check whether it is solvable before actually trying to sovle it. - use parity
+//*****Can check whether it is solvable before actually trying to sovle it. - use parity
 //Remember to reset path.
 
 #include <bits/stdc++.h>
