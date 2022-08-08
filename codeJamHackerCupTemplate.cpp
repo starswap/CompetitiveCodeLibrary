@@ -7,8 +7,10 @@ int main() {
   cin.tie(NULL);
   
   int T;
-  cin >> T;
-  for (int t = 0;t<T;t++) {
-    cout << "Case #" << t+1 << ": " << '\n';
+  int ans;
+  
+  scanf("%d",&T);
+  for (int t = 1;t<=T;t++) {
+    printf("Case #%d: %d\n",t,ans);
   }
 }
