@@ -74,3 +74,65 @@ int main() {
   
   cout << binaryLiftingLCA(lift,4,7) << endl;
 }
+
+
+
+
+//Another one:
+vector<vector<int>> AL; //Adjacency list for tree
+
+int logn; //log(N)= log(n)/log(2);
+int dp[800001][23]; //dp[u][2^n] 20 is minimum; give a bit of extra space; for binary lifting
+int level[800001]; //number of nodes on shortest path from node n to the root i.e. depth. 
+
+void prepBinLift(int u, int l) {
+  //O(NlogN);
+  
+  level[u] = l; // save level
+  
+  int i = 0;
+  while (dp[u][i] != -1) {
+    dp[u][i+1] = dp[dp[u][i]][i];
+    i++;
+  }
+  
+  for (int v : AL[u]) {
+    if (v != dp[u][0]) { // not parent
+      dp[v][0] = u; 
+      prepBinLift(v,l+1); 
+    }
+  }
+  
+}
+
+int binLiftLCA(int u, int v) {
+  //O(logN)
+  
+  if (level[u] < level[v])
+    swap(u,v);
+  
+  int diff = level[u]-level[v];
+  
+  //Make same level
+  while (diff > 0) {
+    int twoPowV = LSOne(diff);
+    u = dp[u][__builtin_ctz(twoPowV)];
+    diff ^= twoPowV;
+  }
+
+  if (u == v) //one was child of other.
+    return u;
+  
+  for (int i=logn;i>=0;i--) {
+    if (dp[u][i] != dp[v][i]) {
+      u = dp[u][i];
+      v = dp[v][i];
+    }
+  }
+  
+  //u's Parent = v's parent = LCA.
+  return dp[u][0];
+}
+
+
+
