@@ -84,3 +84,31 @@ class SegmentTree {
     }
 
 };
+
+
+template <class T>
+class SegmentTreeF {
+  public:
+  //"Fake" segment tree using an array, for debug.
+    SegmentTreeF(const vector<T> &Arr) {
+      n = A.size();
+      build(Arr,0,A.size()-1,1);
+    }
+
+    void rangeUpdate(int L, int R, int deltaV) {
+      for (int i=L;i<=R;++i)
+        A[i] += deltaV;
+    }
+
+    T allQuery() {
+      return *min_element(A.begin(),A.end());
+    }
+
+  private:
+    int n;
+    vector<T> A;
+   
+    void build(const vector<T> &Arr,int L, int R, int S) {
+      A = Arr;
+    }
+};
